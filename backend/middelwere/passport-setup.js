@@ -21,10 +21,10 @@ passport.use(
       console.log(authUser);
 
       authUser ? done(null, authUser) : done(null, false);
-
-      console.log(done);
+      
+      
     } catch (error) {
-      console.log("Error", error);
+      console.log("Passport Error :", error);
     }
   })
 );

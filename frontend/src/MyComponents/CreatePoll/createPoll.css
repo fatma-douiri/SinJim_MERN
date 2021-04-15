@@ -1,0 +1,56 @@
+.add-modal{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 10px;
+    border: 3px solid #fec400;
+    background-color: white;
+}
+.button-create-poll{
+    background-color: #fec400;
+    border-radius: 5px;
+    border-color: #fec400;
+    color: white;
+    
+}
+.options{
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content:space-between;
+    
+
+}
+.option{
+    width: 100%;
+}
+
+.actionOption{
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    
+}
+
+.buttons{
+    display: flex;
+    
+    justify-content: space-between;
+}
+.submit{
+    background-color: #fec400;
+    border-radius: 5px;
+    border-color: #fec400;
+    color: white;
+}
+
+.actionModal{
+
+    background-color: white;
+    border-radius: 5px;
+    border-color: #fec400;
+    color: black;
+}

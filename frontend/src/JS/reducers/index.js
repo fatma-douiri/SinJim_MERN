@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
-
+import userReducers from "./userReducers";
+import pollReducers from "./pollReducers";
 const rootReducer = combineReducers({
-  userReducer,
+  userReducers,
+  pollReducers,
 });
 
 export default rootReducer;

@@ -1,0 +1,13 @@
+.dash{
+    width: 80%;
+    position: absolute;
+    top:100px;
+    left:20%;
+}
+.button-show{
+    background-color: #fec400;
+    border-radius: 5px;
+    border-color: #fec400;
+    color: white;
+    
+}

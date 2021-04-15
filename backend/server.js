@@ -9,7 +9,7 @@ app.use(express.json())
 //routes
 app.use("/user",require('./routes/user'))
 
-//app.use('/polls',require('./routes/poll'))
+app.use("/polls",require('./routes/poll'))
 
 
 //connect DB

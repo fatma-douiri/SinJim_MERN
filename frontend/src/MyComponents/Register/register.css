@@ -1,0 +1,15 @@
+.register{
+  margin-top: 100px;
+  width: 500px;
+  }
+  .button-log{
+      color:white ;
+      width: 20%;
+      
+      border: 1px solid #fec400;
+      border-radius: 5px;
+      margin: 3px;
+      background-color: #fec400;
+      padding: 3px;
+     
+  }

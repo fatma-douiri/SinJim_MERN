@@ -3,20 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-date-picker": "^5.1.0",
+    "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",
+    "react-modal": "^3.12.1",
+    "react-polls": "^1.2.0",
     "react-redux": "^7.2.2",
+    "react-refresh": "^0.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-select": "^4.3.0",
+    "reactjs-popup": "^2.0.4",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
@@ -43,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://localhost:8080"
+  "proxy": "http://localhost:8080"
 }

@@ -1,50 +1,78 @@
+//import './App.css'
+import {Route, Switch,Redirect} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css'
-import {Route, Switch} from 'react-router-dom'
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Navbar from './Components/NavBar/Navbar'
-import RegisterUser from './Components/RegisterUser/RegisterUser'
-import LoginUser from './Components/LoginUser/LoginUser'
-//import ProfileUser from './Components/Profile/ProfileUser'
-import Home from './Components/Home/Home'
-//import Admin from './Components/Admin/Admin'
+import {getProfile} from './JS/actions/userActions'
+import {getAllPolls} from './JS/actions/pollActions'
 
-import{getProfile} from './JS/actions/userActions'
-import PrivateRoute from './Components/PrivateRoute'
-import Profile from './Components/Profiles/Profile'
+
+import Navbar from './MyComponents/NavBar/NavBar'
+import Register from './MyComponents/Register/Register'
+import Login from './MyComponents/Login/Login'
+import Home from './Pages/Home/Home'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import Profile from './Pages/Profile/Profile'
+
+
+
+import PrivateRoute from './MyComponents/PrivateRoute'
+
+
 
 function App() {
+
+  const isAuth  = useSelector((state) => state.userReducers.isAuth);
+  const user    = useSelector((state) => state.userReducers.user);
+  const allPolls  = useSelector((state) => state.pollReducers.allPolls);
+  console.log("APP:allPolls:",allPolls)
+  //const token    = useSelector((state) => state.userReducers.token);
+
+   const token = localStorage.getItem('token');
+  // const isToken = token ? true :false
+  console.log("APP :token :", token)
+  
+  
+  console.log("APP : user.isAdmin :", user.isAdmin)
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
+    
     dispatch(getProfile());
     
-  }, []);
 
-  const user= useSelector((state) => state.userReducer.user);
-  console.log(user)
-  return (
+    
+    
+  }, [isAuth]);
 
-    <div className="App">
-      <Navbar/>
-      <Switch>
-        <Route exact path='/' render = {()=><Home/>} />
-        <Route exact path='/signup' render = {()=><RegisterUser/>} />
-        <Route exact path='/login' render = {()=><LoginUser/>} />
-        <PrivateRoute path="/profile" component= {Profile} /> 
-        {/* <PrivateRoute path={`/profile/:${user.userName}`} component= {Profile} />  */}
 
-        {/* <PrivateRoute path="/profile" component={ProfileUser} />  */}
-        {/* <PrivateRoute path={`/profile/:${user._id}`} component={ProfileUser} /> */}
-        {/* <Route exact  path="/dashboardAdmin" render = {()=><Admin/> }/> */}
-       
+
+   
+  return  (
+
+              <div className="App">
+                <Navbar user={user} isAuth={isAuth}/>
+
+                <Route axact path='/'      render = {() =>  <Redirect to="/Home" /> }/>
+                <Switch>
+                
+                  <Route exact path='/Home'      render = {() =>  <Home /> }/>
+                  <Route exact path='/Signup'    render = {() =>  <Register/>} />
+                  <Route exact path='/Login'    render = {() =>  <Login user={user}/>} />
+                  {/* <Route exact path='/Dashboard' render = {() =>  <Dashboard/>} />
+                  <Route exact path='/MyProfile' render = {() =>  <Profile/>} /> */}
+
+                 
+
+                  <PrivateRoute path={user.isAdmin ?"/Dashboard":"/MyProfile"}   token={token}  component= { user.isAdmin ? Dashboard : Profile }/>
+                </Switch>
                
-        </Switch>
-    </div>
-  );
+              </div>
+  )
+         
 }
 
 export default App;
